@@ -20,5 +20,13 @@
 
 ;pos?- consumes a l, determines whether all elements are positive numbers
 
-(check-expect (pos? (cons 12 (cons 2 (cons 8 (cons 6))))) true)
-(check-expect (pos? (cons 4 (cons -88 (cons 5 (cons 21))))) false)
+(check-expect (pos? (cons 12 (cons 2 (cons 8 (cons 6 empty))))) true)
+(check-expect (pos? (cons 4 (cons -88 (cons 5 (cons 21 empty))))) false)
+
+
+;pos?
+(define (pos? l)
+  (cond
+  [(empty? l) true]
+  [(> (first l) 0) (pos? (rest l))]
+  [else false]))
