@@ -9,8 +9,8 @@
 ; interp. a l represents some amounts of money
 
 
-;adds the con
-(define (sum num l)
+;just like recusion expample- execpt instead of 1, I use first l
+(define (sum l)
   (cond
-  [(empty? l) num]
-  [else (sum (+ num (first l)) (rest l))]))
+  [(empty? l) 0]
+  [else (+ (first l) (sum (rest l)))]))
