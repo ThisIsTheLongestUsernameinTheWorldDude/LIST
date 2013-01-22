@@ -30,3 +30,10 @@
   [(empty? l) true]
   [(> (first l) 0) (pos? (rest l))]
   [else false]))
+
+;119
+;all-true
+;determines wherther all elements of a list of bools are true
+;same principle as abouve
+(check-expect (cons true (cons true empty)) true)
+(check-expect (cons true (cons false empty)) false)
